@@ -7,6 +7,7 @@ import '../config.dart';
 import 'overlay_screen.dart';
 import 'score_card.dart';
 
+// 게임 영역 위젯 (stateful widget)
 class GameApp extends StatefulWidget {
   const GameApp({super.key});
 
@@ -15,19 +16,24 @@ class GameApp extends StatefulWidget {
 }
 
 class _GameAppState extends State<GameApp> {
+  // 실제 게임 앱의 핵심 내용을 담당하는 BrickBreaker 객체를 현 GameApp 위젯 내부에 불러와 초기화 (반드시 게임 핵심 내용이기 때문에 불러오는 BrickBreaker 에 FlameGame 가 상속되어 있어야 한다.)
   late final BrickBreaker game;
 
+  // GameApp 객체가 초기 생성될 때 수행되는 시작 상태
   @override
   void initState() {
     super.initState();
+
+    // GameApp이 생성될 때 선언한 game 필드 벼눗에 BrickBreaker 객체로 초기화한다.
     game = BrickBreaker();
   }
 
+  // GameApp 위젯 빌드
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
+      debugShowCheckedModeBanner: false, // 디버그 용 확인 배너 삭제
+      theme: ThemeData( // 테마 설정
         useMaterial3: true,
         textTheme: GoogleFonts.pressStart2pTextTheme().apply(
           bodyColor: const Color(0xff184e77),

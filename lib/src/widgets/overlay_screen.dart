@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
+// 오버레이 스크린 위젯
 class OverlayScreen extends StatelessWidget {
   const OverlayScreen({
     super.key,
@@ -8,7 +9,9 @@ class OverlayScreen extends StatelessWidget {
     required this.subtitle,
   });
 
+  // 게임 상태에 따른 오버레이 타이틀
   final String title;
+  // 게임 상태에 따른 오버레이 부가 타이틀
   final String subtitle;
 
   @override
